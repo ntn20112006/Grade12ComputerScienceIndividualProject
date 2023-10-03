@@ -1,4 +1,4 @@
-package com.example.grade12computerscienceindividualproject.ui.theme
+package com.example.grade12computerscienceindividualproject.presentation
 
 import androidx.compose.ui.graphics.Color
 

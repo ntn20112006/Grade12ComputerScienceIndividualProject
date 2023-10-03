@@ -1,4 +1,4 @@
-package com.example.grade12computerscienceindividualproject
+package com.example.grade12computerscienceindividualproject.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
