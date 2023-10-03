@@ -1,4 +1,4 @@
-package com.example.grade12computerscienceindividualproject.presentation
+package com.example.grade12computerscienceindividualproject.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
