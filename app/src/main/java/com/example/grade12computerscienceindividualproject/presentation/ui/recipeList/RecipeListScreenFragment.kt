@@ -12,8 +12,13 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.example.grade12computerscienceindividualproject.presentation.components.RecipeListTopBar
 
-
+/**
+ * A recipe list screen fragment
+ */
 class RecipeListFragment : Fragment() {
+    /**
+     * @return a composable for recipe list screen
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

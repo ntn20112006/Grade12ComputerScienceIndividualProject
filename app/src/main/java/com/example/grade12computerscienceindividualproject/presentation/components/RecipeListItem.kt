@@ -11,6 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 
+/**
+ * Composable for recipe list individual recipe
+ */
 @Composable
 fun RecipeListItem(recipe: Recipe) {
     Row (
@@ -29,6 +32,9 @@ fun RecipeListItem(recipe: Recipe) {
     }
 }
 
+/**
+ * Composable for recipe list individual recipe description
+ */
 @Composable
 fun RecipeListItemDescription(recipe: Recipe) {
     Column (

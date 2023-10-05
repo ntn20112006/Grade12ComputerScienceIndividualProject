@@ -7,6 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 
+/**
+ * Composable for recipe list
+ */
 @Composable
 fun RecipeList(recipeList: List<Recipe>) {
     LazyColumn(
