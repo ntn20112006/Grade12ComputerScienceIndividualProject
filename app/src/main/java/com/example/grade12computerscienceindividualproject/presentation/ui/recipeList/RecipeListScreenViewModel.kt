@@ -9,10 +9,17 @@ import com.example.grade12computerscienceindividualproject.utils.RecipeListFilte
 /**
  * A recipe list screen fragment
  *
+ * @property originalRecipeList
  * @property recipeList
  */
-class RecipeListScreenViewModel : ViewModel() {
+class RecipeListScreenViewModel(
+    private val originalRecipeList: List<Recipe>
+) : ViewModel() {
     private val recipeList: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
+
+    init {
+        recipeList.value = originalRecipeList
+    }
 
     /**
      * Filter the recipeList based on recipe name
