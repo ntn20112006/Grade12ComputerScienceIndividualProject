@@ -25,6 +25,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 
+/**
+ * Composable for search bar
+ */
 @ExperimentalMaterial3Api
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

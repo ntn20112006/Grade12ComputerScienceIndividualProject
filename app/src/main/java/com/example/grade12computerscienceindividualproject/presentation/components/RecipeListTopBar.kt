@@ -8,6 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+/**
+ * Composable for recipe list top bar
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecipeListTopBar() {
@@ -21,4 +24,7 @@ fun RecipeListTopBar() {
     }
 }
 
+/**
+ * Just a temporary function, serve no special purpose
+ */
 fun temp(temp: String) {}
