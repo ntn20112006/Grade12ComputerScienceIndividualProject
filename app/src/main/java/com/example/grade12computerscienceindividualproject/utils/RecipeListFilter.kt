@@ -10,12 +10,14 @@ class RecipeListFilter {
         /**
          * Filter recipe list by name
          */
-        fun filterRecipeListByName(recipeName: String, recipeList: MutableList<Recipe>) {
+        fun filterRecipeListByName(recipeName: String, recipeList: List<Recipe>) : List<Recipe>{
+            val tempRecipeList : MutableList<Recipe> = ArrayList()
             for (recipe in recipeList) {
                 if (recipe[1].name != recipeName) {
-                    recipeList.remove(recipe)
+                    tempRecipeList.add(recipe)
                 }
             }
+            return tempRecipeList
         }
     }
 }
