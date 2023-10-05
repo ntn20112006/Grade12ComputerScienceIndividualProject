@@ -4,6 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
+import com.example.grade12computerscienceindividualproject.utils.RecipeListFilter
 
 /**
  * A recipe list screen fragment
@@ -17,6 +18,6 @@ class RecipeListScreenViewModel : ViewModel() {
      * Filter the recipeList based on recipe name
      */
     fun filterRecipeList (recipeName: String) {
-        // TODO Filter recipe list
+        recipeList.value = RecipeListFilter.filterRecipeListByName(recipeName, recipeList.value)
     }
 }
