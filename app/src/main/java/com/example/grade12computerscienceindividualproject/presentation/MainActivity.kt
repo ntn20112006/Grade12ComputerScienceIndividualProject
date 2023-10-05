@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // A way to temporary show the fragment
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, RecipeListFragment())
