@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.grade12computerscienceindividualproject"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.grade12computerscienceindividualproject"
@@ -51,9 +51,14 @@ android {
 
 dependencies {
 
-    implementation("com.google.code.gson:gson:2.9.0")
+    val appcompat_version = "1.6.1"
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
