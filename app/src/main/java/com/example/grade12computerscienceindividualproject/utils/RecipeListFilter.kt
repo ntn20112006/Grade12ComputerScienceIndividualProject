@@ -9,6 +9,8 @@ class RecipeListFilter {
     companion object {
         /**
          * Filter recipe list by name
+         *
+         * @return recipe list
          */
         fun filterRecipeListByName(recipeName: String, recipeList: List<Recipe>) : List<Recipe>{
             val tempRecipeList : MutableList<Recipe> = ArrayList()
