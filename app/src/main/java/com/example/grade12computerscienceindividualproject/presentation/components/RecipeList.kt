@@ -1,0 +1,21 @@
+package com.example.grade12computerscienceindividualproject.presentation.components
+
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import com.example.grade12computerscienceindividualproject.domain.model.Recipe
+
+@Composable
+fun RecipeList(recipeList: List<Recipe>) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        items(recipeList.size) {
+            // TODO Add calls recipe list composable and pass in the recipe item
+        }
+    }
+}
