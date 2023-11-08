@@ -15,6 +15,9 @@ class RecipeRepository {
     companion object {
         /**
          * Read a recipe json file
+         *
+         * @param path the path of the file wanted to be read
+         * @param context the context required to get to the assets folder
          * @return the recipe object
          */
         fun getRecipeFromJSON(path: String, context: Context): Recipe {
@@ -27,6 +30,9 @@ class RecipeRepository {
 
         /**
          * Write a recipe json file
+         *
+         * @param fileName the name of the soon to be created file
+         * @param recipe the recipe information for the soon to be created file
          */
         fun writeNewJSONRecipe(fileName: String, recipe: Recipe) {
             try {

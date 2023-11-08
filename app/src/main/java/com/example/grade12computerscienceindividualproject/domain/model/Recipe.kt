@@ -3,7 +3,7 @@ package com.example.grade12computerscienceindividualproject.domain.model
 /**
  * An recipe object
  *
- *  @inherit ArrayList<RecipeDetails>
+ *  @inheritdoc ArrayList<RecipeDetails>
  */
 class Recipe: ArrayList<RecipeDetails>()
 
