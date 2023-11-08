@@ -10,7 +10,9 @@ class RecipeListFilter {
         /**
          * Filter recipe list by name
          *
-         * @return recipe list
+         * @param recipeName the name of the recipe wanted to be white list filtered
+         * @param recipeList the original recipe list
+         * @return the already filtered recipe list
          */
         fun filterRecipeListByName(recipeName: String, recipeList: List<Recipe>) : List<Recipe>{
             val tempRecipeList : MutableList<Recipe> = ArrayList()
