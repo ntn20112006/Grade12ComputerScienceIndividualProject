@@ -1,7 +1,31 @@
 package com.example.grade12computerscienceindividualproject.domain.model
 
+/**
+ * An recipe object
+ *
+ *  @inheritdoc ArrayList<RecipeDetails>
+ */
 class Recipe: ArrayList<RecipeDetails>()
 
+/**
+ * An recipe description object
+ *
+ * @property aggregateRating the rating of this information of the recipe
+ * @property author the information about the author of the recipe
+ * @property cookTime the amount of time required to cook this recipe
+ * @property datePublished the date of when this post was published
+ * @property description a descriptive description about the recipe
+ * @property image information about the image of the recipe
+ * @property name name of the recipe
+ * @property nutrition information about the nutrition value of the recipe
+ * @property prepTime the amount of time required to prepare the ingredients for the recipe
+ * @property recipeCategory a list of the different categories this food fall into
+ * @property recipeIngredient a list of the different ingredients in this recipe
+ * @property recipeInstructions a list of the different steps to cook this recipe
+ * @property recipeYield the amount of item you will get from thsi recipe
+ * @property review review from others about this recipe
+ * @property totalTime the total time required to cook this recipe
+ */
 data class RecipeDetails(
     val aggregateRating: AggregateRating,
     val author: List<Author>,
@@ -9,13 +33,10 @@ data class RecipeDetails(
     val datePublished: String,
     val description: String,
     val image: Image,
-    val itemListElement: List<ItemElement>,
-    val mainEntityOfPage: String,
     val name: String,
     val nutrition: Nutrition,
     val prepTime: Any,
     val recipeCategory: List<String>,
-    val recipeCuisine: List<Any>,
     val recipeIngredient: List<String>,
     val recipeInstructions: List<RecipeInstruction>,
     val recipeYield: String,
@@ -23,29 +44,55 @@ data class RecipeDetails(
     val totalTime: Any
 )
 
+/**
+ * A recipe rating object
+ *
+ * @property ratingCount the number of rating
+ * @property ratingValue the average value of all the rating
+ */
 data class AggregateRating(
-    val bestRating: String,
-    val itemReviewed: String,
     val ratingCount: Int,
     val ratingValue: Double,
-    val worstRating: String
 )
 
+/**
+ * An author object
+ *
+ * @property name the name of the author
+ */
 data class Author(
     val name: String
 )
 
+/**
+ * An image object
+ *
+ * @property height the original height of the image
+ * @property width the original width of the image
+ * @property url the url to the image
+ */
 data class Image(
     val height: Int,
     val url: String,
     val width: Int
 )
 
-data class ItemElement(
-    val item: Item,
-    val position: Int
-)
-
+/**
+ * A nutrition object
+ *
+ * @property calories the amount of calories
+ * @property carbohydrateContent the amount of carbohydrate
+ * @property cholesterolContent the amount of cholesterol
+ * @property fatContent the amount of fat
+ * @property fiberContent the amount of fiber
+ * @property proteinContent the amount of protein
+ * @property saturatedFatContent the amount of saturated fat
+ * @property servingSize the serving size
+ * @property sodiumContent the amount of sodium
+ * @property sugarContent the amount of sugar
+ * @property transFatContent the amount of trans fat
+ * @property unsaturatedFatContent the amount of unsaturated fat
+ */
 data class Nutrition(
     val calories: String,
     val carbohydrateContent: String,
@@ -61,30 +108,33 @@ data class Nutrition(
     val unsaturatedFatContent: Any
 )
 
+/**
+ * A recipe instruction object
+ *
+ * @property text the instruction of how to cook the recipe
+ */
 data class RecipeInstruction(
     val text: String
 )
 
+/**
+ * A review object
+ *
+ * @property author the information about the author of the review
+ * @property datePublished the date the review was published
+ * @property reviewRating the rating of the review
+ */
 data class Review(
-    val author: AuthorX,
+    val author: Author,
     val datePublished: String,
-    val reviewBody: String,
     val reviewRating: ReviewRating
 )
 
-data class Item(
-    val image: Any,
-    val name: String
-)
-
-data class AuthorX(
-    val image: Any,
-    val name: String,
-    val sameAs: String
-)
-
+/**
+ * A review rating object
+ *
+ * @property ratingValue the rating in the review
+ */
 data class ReviewRating(
-    val bestRating: String,
     val ratingValue: Int,
-    val worstRating: String
 )
