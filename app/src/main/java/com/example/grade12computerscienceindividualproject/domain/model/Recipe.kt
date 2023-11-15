@@ -1,8 +1,5 @@
 package com.example.grade12computerscienceindividualproject.domain.model
 
-import java.lang.Math.round
-import kotlin.math.roundToInt
-
 /**
  * An recipe object
  *
