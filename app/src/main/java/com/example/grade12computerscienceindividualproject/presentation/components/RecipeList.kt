@@ -17,9 +17,9 @@ fun RecipeList(recipeList: List<Recipe>) {
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        items(recipeList.size) {
+        items(recipeList.size) { i ->
             // TODO Add calls recipe list composable and pass in the recipe item
-            RecipeListItem(recipe = recipeList[0])
+            RecipeListItem(recipe = recipeList[i])
         }
     }
 }
