@@ -19,6 +19,7 @@ fun RecipeList(recipeList: List<Recipe>) {
     ) {
         items(recipeList.size) {
             // TODO Add calls recipe list composable and pass in the recipe item
+            RecipeListItem(recipe = recipeList[0])
         }
     }
 }
