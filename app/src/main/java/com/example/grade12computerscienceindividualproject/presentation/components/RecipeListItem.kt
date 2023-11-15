@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 
 /**
@@ -43,9 +45,13 @@ fun RecipeListItemDescription(recipe: Recipe) {
             .fillMaxHeight()
     ) {
         Text(text = recipe[1].name,
+            color = Color.White,
+            fontSize = 20.sp,
             modifier = Modifier
                 .fillMaxWidth())
         Text(text = recipe[1].description,
+            color = Color.White,
+            fontSize = 15.sp,
             modifier = Modifier
                 .fillMaxHeight()
                 .fillMaxWidth())
