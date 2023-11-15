@@ -29,14 +29,14 @@ class RecipeListFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
+                val viewModel = RecipeListScreenViewModel(LocalContext.current)
                 Column (
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()
                 ) {
                     RecipeListTopBar()
-                    val recipe = listOf(RecipeRepository.getRecipeFromJSON("Recipe1.json", LocalContext.current))
-                    RecipeList(recipe)
+                    RecipeList(viewModel.recipeList.value)
                 }
             }
         }
