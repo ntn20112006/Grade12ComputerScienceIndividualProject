@@ -87,13 +87,10 @@ data class Image(
  * @property fiberContent the amount of fiber
  * @property proteinContent the amount of protein
  * @property saturatedFatContent the amount of saturated fat
- * @property servingSize the serving size
  * @property sodiumContent the amount of sodium
  * @property sugarContent the amount of sugar
- * @property transFatContent the amount of trans fat
- * @property unsaturatedFatContent the amount of unsaturated fat
  */
-data class Nutrition(
+class Nutrition(
     val calories: String,
     val carbohydrateContent: String,
     val cholesterolContent: String,
@@ -101,12 +98,106 @@ data class Nutrition(
     val fiberContent: String,
     val proteinContent: String,
     val saturatedFatContent: String,
-    val servingSize: Any,
     val sodiumContent: String,
-    val sugarContent: String,
-    val transFatContent: Any,
-    val unsaturatedFatContent: Any
-)
+    val sugarContent: String
+) {
+    /**
+     * A function to calculate the amount of calories in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getCaloriesPercentage(): Int {
+        return removeUnit(calories) / 2500 * 100
+    }
+
+    /**
+     * A function to calculate the amount of carbohydrate in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getCarbohydratePercentage(): Int {
+        return removeUnit(carbohydrateContent) / 300 * 100
+    }
+
+    /**
+     * A function to calculate the amount of cholesterol in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getCholesterolPercentage(): Int {
+        return removeUnit(cholesterolContent) / 300 * 100
+    }
+
+    /**
+     * A function to calculate the amount of fat in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getFatPercentage(): Int {
+        return removeUnit(fatContent) / 70 * 100
+    }
+
+    /**
+     * A function to calculate the amount of fiber in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getFiberPercentage(): Int {
+        return removeUnit(fiberContent) / 35 * 100
+    }
+
+    /**
+     * A function to calculate the amount of protein in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getProteinPercentage(): Int {
+        return removeUnit(proteinContent) / 55 * 100
+    }
+
+    /**
+     * A function to calculate the amount of saturated fat in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getSaturatedFatPercentage(): Int {
+        return removeUnit(saturatedFatContent) / 22 * 100
+    }
+
+    /**
+     * A function to calculate the amount of sodium in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getSodiumPercentage(): Int {
+        return removeUnit(sodiumContent) / 2300 * 100
+    }
+
+    /**
+     * A function to calculate the amount of sugar in percentage when compare with the recommended daily value
+     *
+     * @return the percentage in the Integer form
+     */
+    fun getSugarPercentage(): Int {
+        return removeUnit(sugarContent) / 36 * 100
+    }
+
+    /**
+     * A function to remove the unit of a nutrition and return it in the form of an integer
+     *
+     * @param input the string that contains the amount and unit of nutrition
+     * @return the amount in integer
+     */
+    private fun removeUnit(input: String): Int {
+        var temp = ""
+        for (char in input) {
+            if (char == ' ')
+                break
+            temp += char
+        }
+        return temp.toInt()
+    }
+}
 
 /**
  * A recipe instruction object
