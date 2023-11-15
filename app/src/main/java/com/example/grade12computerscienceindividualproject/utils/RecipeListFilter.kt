@@ -14,10 +14,10 @@ class RecipeListFilter {
          * @param recipeList the original recipe list
          * @return the already filtered recipe list
          */
-        fun filterRecipeListByName(recipeName: String, recipeList: List<Recipe>) : List<Recipe>{
+        fun filterRecipeListByName(recipeName: String, recipeList: List<Recipe>) : List<Recipe> {
             val tempRecipeList : MutableList<Recipe> = ArrayList()
             for (recipe in recipeList) {
-                if (recipe[1].name != recipeName) {
+                if (recipe[1].name.lowercase().contains(recipeName.lowercase())) {
                     tempRecipeList.add(recipe)
                 }
             }

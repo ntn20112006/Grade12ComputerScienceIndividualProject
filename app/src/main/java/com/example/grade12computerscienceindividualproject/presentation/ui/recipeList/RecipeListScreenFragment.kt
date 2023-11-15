@@ -7,13 +7,21 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.Fragment
 import com.example.grade12computerscienceindividualproject.presentation.components.RecipeList
 import com.example.grade12computerscienceindividualproject.presentation.components.RecipeListTopBar
-import com.example.grade12computerscienceindividualproject.repository.RecipeRepository
+
+
+private lateinit var viewModel: RecipeListScreenViewModel
+
+fun getRecipeListScreenViewModel() : RecipeListScreenViewModel {
+    return viewModel
+}
 
 /**
  * A recipe list screen fragment
@@ -29,14 +37,17 @@ class RecipeListFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                val viewModel = RecipeListScreenViewModel(LocalContext.current)
+                viewModel = RecipeListScreenViewModel(LocalContext.current)
+                val recipe by remember {
+                    viewModel.recipeList
+                }
                 Column (
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()
                 ) {
                     RecipeListTopBar()
-                    RecipeList(viewModel.recipeList.value)
+                    RecipeList(recipe)
                 }
             }
         }
