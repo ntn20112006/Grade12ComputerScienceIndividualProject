@@ -25,7 +25,8 @@ class RecipeListScreenViewModel(
         for (i in 1..10) {
             mutableList.add(RecipeRepository.getRecipeFromJSON("Recipe$i.json", context))
         }
-        originalRecipeList = mutableList
+        originalRecipeList = RecipeListFilter.getSortedRecipeListByName(mutableList)
+//        originalRecipeList = RecipeListFilter.getSortedRecipeListByRating(mutableList)
         recipeList.value = originalRecipeList
     }
 
