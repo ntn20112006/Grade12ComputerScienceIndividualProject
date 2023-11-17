@@ -2,6 +2,7 @@ package com.example.grade12computerscienceindividualproject.utils
 
 import android.util.Log
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
+import kotlin.math.roundToInt
 
 /**
  * A class to filter recipe list
@@ -44,6 +45,27 @@ class RecipeListFilter {
                 val tempRecipe = tempRecipeList[smallestRecipeIndex]
                 tempRecipeList[smallestRecipeIndex] = tempRecipeList[i]
                 tempRecipeList[i] = tempRecipe
+            }
+            return tempRecipeList
+        }
+
+        /**
+         * Sort recipe list by rating
+         *
+         * @param recipeList the original recipe list
+         * @return the filtered list of recipe
+         */
+        fun getSortedRecipeListByRating(recipeList: List<Recipe>) : List<Recipe> {
+            val bucketArray : Array<MutableList<Recipe>> = arrayOf(mutableListOf(),
+                mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf())
+            for (recipe in recipeList) {
+                bucketArray[recipe[1].aggregateRating.ratingValue.roundToInt()].add(recipe)
+            }
+            val tempRecipeList : MutableList<Recipe> = recipeList.toMutableList()
+            for (list in bucketArray) {
+                for (recipe in list) {
+                    tempRecipeList.add(recipe)
+                }
             }
             return tempRecipeList
         }
