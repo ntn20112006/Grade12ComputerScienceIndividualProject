@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Grade12ComputerScienceIndividualProject"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".navigation.Navigation"
             android:exported="true"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
