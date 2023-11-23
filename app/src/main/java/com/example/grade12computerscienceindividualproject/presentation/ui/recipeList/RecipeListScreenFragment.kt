@@ -35,9 +35,10 @@ class RecipeListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val fragment: Fragment = this
         return ComposeView(requireContext()).apply {
             setContent {
-                viewModel = RecipeListScreenViewModel(LocalContext.current)
+                viewModel = RecipeListScreenViewModel(LocalContext.current, fragment)
                 val recipe by remember {
                     viewModel.recipeList
                 }

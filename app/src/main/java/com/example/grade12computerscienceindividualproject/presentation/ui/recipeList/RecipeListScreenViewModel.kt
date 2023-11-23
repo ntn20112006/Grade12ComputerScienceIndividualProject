@@ -3,6 +3,7 @@ package com.example.grade12computerscienceindividualproject.presentation.ui.reci
 import android.content.Context
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 import com.example.grade12computerscienceindividualproject.repository.RecipeRepository
@@ -15,7 +16,8 @@ import com.example.grade12computerscienceindividualproject.utils.RecipeListFilte
  * @property recipeList
  */
 class RecipeListScreenViewModel(
-    context: Context
+    context: Context,
+    val fragment: Fragment
 ) : ViewModel() {
     val recipeList: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
     private val originalRecipeList: List<Recipe>

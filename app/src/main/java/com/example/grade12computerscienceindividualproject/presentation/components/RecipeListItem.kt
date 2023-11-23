@@ -1,5 +1,6 @@
 package com.example.grade12computerscienceindividualproject.presentation.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -11,7 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import com.example.grade12computerscienceindividualproject.R
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
+import com.example.grade12computerscienceindividualproject.presentation.ui.recipeList.getRecipeListScreenViewModel
 
 /**
  * Composable for recipe list individual recipe
@@ -22,6 +26,7 @@ fun RecipeListItem(recipe: Recipe) {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
+            .clickable { findNavController(getRecipeListScreenViewModel().fragment).navigate(R.id.recipeFragment) }
     ) {
         Row (
             modifier = Modifier
