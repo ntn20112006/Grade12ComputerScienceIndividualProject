@@ -1,5 +1,6 @@
 package com.example.grade12computerscienceindividualproject.presentation.components
 
+import android.os.Bundle
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,11 +23,17 @@ import com.example.grade12computerscienceindividualproject.presentation.ui.recip
  */
 @Composable
 fun RecipeListItem(recipe: Recipe) {
+    val bundle = Bundle().apply {
+        putString("RecipeName", recipe[1].name)
+    }
     Row (
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .clickable { findNavController(getRecipeListScreenViewModel().fragment).navigate(R.id.recipeFragment) }
+            .clickable {
+                findNavController(getRecipeListScreenViewModel().fragment)
+                    .navigate(R.id.recipeFragment, bundle)
+            }
     ) {
         Row (
             modifier = Modifier
@@ -38,6 +45,8 @@ fun RecipeListItem(recipe: Recipe) {
         }
     }
 }
+
+private fun Bundle.putParcelable(s: String, recipe: Recipe) {}
 
 /**
  * Composable for recipe list individual recipe description

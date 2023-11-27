@@ -1,6 +1,5 @@
 package com.example.grade12computerscienceindividualproject.utils
 
-import android.util.Log
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 import kotlin.math.roundToInt
 
