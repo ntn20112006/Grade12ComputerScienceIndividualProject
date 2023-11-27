@@ -16,9 +16,8 @@ class RecipeScreenViewModel (
     val recipe: Recipe
 
     init {
-        recipe = RecipeListFilter.filterRecipeListByName(
-            argument.getString("RecipeName")!!,
-            getRecipeListScreenViewModel().recipeList.value)[0]
+        recipe = RecipeListFilter.searchRecipeByName(
+            getRecipeListScreenViewModel().recipeList.value, argument.getString("RecipeName")!!)
     }
 
     fun getRecipeScreenUITitleText(): String {
