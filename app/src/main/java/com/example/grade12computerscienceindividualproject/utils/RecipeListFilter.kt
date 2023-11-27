@@ -1,7 +1,6 @@
 package com.example.grade12computerscienceindividualproject.utils
 
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
-import kotlin.math.roundToInt
 
 /**
  * A class to filter recipe list
