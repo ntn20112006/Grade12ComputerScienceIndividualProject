@@ -46,8 +46,6 @@ fun RecipeListItem(recipe: Recipe) {
     }
 }
 
-private fun Bundle.putParcelable(s: String, recipe: Recipe) {}
-
 /**
  * Composable for recipe list individual recipe description
  */

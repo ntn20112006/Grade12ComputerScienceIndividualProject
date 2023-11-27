@@ -54,17 +54,36 @@ class RecipeListFilter {
          * @param recipeList the original recipe list
          * @return the filtered list of recipe
          */
-        fun getSortedRecipeListByRating(recipeList: List<Recipe>) : List<Recipe> {
-            val bucketArray : Array<MutableList<Recipe>> = arrayOf(mutableListOf(),
-                mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf())
+        fun getSortedRecipeListByRatingWithBucketSort(recipeList: List<Recipe>) : List<Recipe> {
+            val bucketArray : MutableList<MutableList<Recipe>> = mutableListOf()
+            for (i in 0..50)
+                bucketArray.add(mutableListOf())
             for (recipe in recipeList) {
-                bucketArray[recipe[1].aggregateRating.ratingValue.roundToInt()].add(recipe)
+                bucketArray[(recipe[1].aggregateRating.ratingValue * 10).roundToInt()].add(recipe)
             }
-            val tempRecipeList : MutableList<Recipe> = recipeList.toMutableList()
+            val tempRecipeList : MutableList<Recipe> = mutableListOf()
             for (list in bucketArray) {
                 for (recipe in list) {
                     tempRecipeList.add(recipe)
                 }
+            }
+            return tempRecipeList
+        }
+
+        fun getSortedRecipeListByRatingWithSelectionSort(recipeList: List<Recipe>) : List<Recipe> {
+            val tempRecipeList : MutableList<Recipe> = recipeList.toMutableList()
+
+            for (i in recipeList.indices) {
+                var smallestRecipeIndex = i
+                for (j in (i + 1) until recipeList.size) {
+                    if (tempRecipeList[smallestRecipeIndex][1].aggregateRating.ratingValue <
+                        tempRecipeList[j][1].aggregateRating.ratingValue) {
+                        smallestRecipeIndex = j
+                    }
+                }
+                val tempRecipe = tempRecipeList[smallestRecipeIndex]
+                tempRecipeList[smallestRecipeIndex] = tempRecipeList[i]
+                tempRecipeList[i] = tempRecipe
             }
             return tempRecipeList
         }
