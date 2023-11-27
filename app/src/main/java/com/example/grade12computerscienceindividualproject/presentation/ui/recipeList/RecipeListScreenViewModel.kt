@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModel
 import com.example.grade12computerscienceindividualproject.domain.model.Recipe
 import com.example.grade12computerscienceindividualproject.repository.RecipeRepository
 import com.example.grade12computerscienceindividualproject.utils.RecipeListFilter
+import com.example.grade12computerscienceindividualproject.utils.SelectionSort
+import com.example.grade12computerscienceindividualproject.utils.SortingAlgorithm
 
 /**
  * A recipe list screen fragment
@@ -27,9 +29,8 @@ class RecipeListScreenViewModel(
         for (i in 1..20) {
             mutableList.add(RecipeRepository.getRecipeFromJSON("Recipe$i.json", context))
         }
-        originalRecipeList = RecipeListFilter.getSortedRecipeListByName(mutableList)
-//        originalRecipeList = RecipeListFilter.getSortedRecipeListByRatingWithBucketSort(mutableList)
-//        originalRecipeList = RecipeListFilter.getSortedRecipeListByRatingWithSelectionSort(mutableList)
+        val sorter: SortingAlgorithm = SelectionSort()
+        originalRecipeList = sorter.sortByName(mutableList)
         recipeList.value = originalRecipeList
     }
 
