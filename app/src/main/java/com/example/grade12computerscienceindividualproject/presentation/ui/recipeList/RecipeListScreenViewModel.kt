@@ -24,7 +24,7 @@ class RecipeListScreenViewModel(
 
     init {
         val mutableList = mutableListOf<Recipe>()
-        for (i in 1..10) {
+        for (i in 1..20) {
             mutableList.add(RecipeRepository.getRecipeFromJSON("Recipe$i.json", context))
         }
         originalRecipeList = RecipeListFilter.getSortedRecipeListByName(mutableList)
